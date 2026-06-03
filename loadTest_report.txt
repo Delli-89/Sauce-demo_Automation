@@ -1,0 +1,36 @@
+# Load Test Report
+
+## Test Configuration
+
+* Target URL: https://reqres.in/api/users?page=1
+* Method: GET
+* Concurrent Users: 50
+* Test Duration: 2 Minutes
+* Tool Used: k6
+
+## Results
+
+| Metric                           | Value        |
+| -------------------------------- | ------------ |
+| Average Response Time            | 58.01 ms     |
+| Minimum Response Time            | 12.32 ms     |
+| Maximum Response Time            | 2.59 s       |
+| p90 Response Time                | 90.7 ms      |
+| p95 Response Time                | 218.98 ms    |
+| Throughput (Requests per Second) | 855.22 req/s |
+| Total Requests                   | 102,658      |
+| Failed Requests                  | 102,658      |
+| Error Rate                       | 100%         |
+
+## Observations
+
+* The load test was executed with 50 concurrent virtual users for a duration of 2 minutes.
+* The system processed 102,658 requests during the test.
+* The average response time remained low at 58.01 ms.
+* The 90th percentile response time was 90.7 ms and the 95th percentile response time was 218.98 ms.
+* Throughput reached approximately 855 requests per second.
+* All requests failed the configured validation check (`status is 200`), resulting in a 100% error rate.
+
+## Final Summary
+
+The API endpoint demonstrated high throughput and relatively low response times under a load of 50 concurrent users. However, all requests failed the response validation check, resulting in a 100% error rate. Further investigation is required to determine whether the endpoint returned non-200 status codes, encountered rate limiting, or experienced another server-side issue during the load test.
